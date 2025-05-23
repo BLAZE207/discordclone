@@ -1,159 +1,695 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-/***************/
-/*   Whitney   */
-/***************/
-
-@font-face {
-  font-family: Whitney;
-  font-weight: 300;
-  src: url(fonts/Whitney/Whitney-300.woff) format("woff");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'gg Sans', sans-serif;
 }
 
-@font-face {
-  font-family: Whitney;
+body {
+  background-color: white;
+  color: #23272a;
+}
+
+/* Nav bg & font */
+.nav-bg {
+  background-color: #404eed;
+  font-family: 'gg Sans', sans-serif;
+  color: white;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+  position: relative;
+}
+
+.logo img {
+  height: 32px;
+}
+
+.nav-links {
+  display: none;
+  gap: 20px;
+  font-size: 16px;
   font-weight: 400;
-  src: url(fonts/Whitney/Whitney-400.woff) format("woff");
 }
 
-@font-face {
-  font-family: Whitney;
-  font-weight: 500;
-  src: url(fonts/Whitney/Whitney-500.woff) format("woff");
+.nav-links a {
+  color: white;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-@font-face {
-  font-family: Whitney;
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.open-discord-btn button {
+  border-radius: 4px;
   font-weight: 600;
-  src: url(fonts/Whitney/Whitney-600.woff) format("woff");
+  font-size: 16px;
+  background-color: white;
+  color: #404eed;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
 }
 
-@font-face {
-  font-family: Whitney;
-  font-weight: 700;
-  src: url(fonts/Whitney/Whitney-700.woff) format("woff");
+.open-discord-btn button:hover {
+  background-color: #dde0f8;
 }
 
-/***************/
-/*    Ginto    */
-/***************/
-
-@font-face {
-  font-family: Ginto;
-  font-weight: 300;
-  src: url(fonts/Ginto/Ginto-300.woff) format("woff");
+/* Hamburger icon */
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  display: block;
 }
 
-@font-face {
-  font-family: Ginto;
+/* Show nav-links on desktop */
+@media screen and (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: #404eed;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  margin-top: -4px; 
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: white;
+}
+
+@media (min-width: 1280px) {
+  .hero-section {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 28px; 
+  padding-right: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 900px;
+    text-align: left;
+  }
+}
+
+.hero-text {
+  flex: 1;
+  z-index: 20;
+}
+
+.hero-text h2 {
+  font-weight: 800;
+  font-family: 'GintoNord', sans-serif;
+  font-size: 34px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-text h2 {
+    font-size: 56px;
+  }
+}
+
+.hero-text p {
   font-weight: 400;
-  src: url(fonts/Ginto/Ginto-400.woff) format("woff");
+  font-family: 'gg sans', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-@font-face {
-  font-family: Ginto;
+@media (min-width: 768px) {
+  .hero-text p {
+    font-size: 20px;
+    line-height: 32.5px;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-text p {
+    width: 90%;
+    margin-bottom: 0;
+  }
+}
+
+/* Buttons */
+.buttons {
   font-weight: 500;
-  src: url(fonts/Ginto/Ginto-500.woff) format("woff");
+  display: flex;
+  gap: 40px;
+  z-index: 20;
 }
 
-@font-face {
-  font-family: Ginto;
-  src: url(fonts/Ginto/Ginto-600.woff) format("woff");
+.desktop-buttons {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .desktop-buttons {
+    display: flex;
+  }
+}
+
+.mobile-buttons {
+  display: flex;
+}
+
+@media (min-width: 1280px) {
+  .mobile-buttons {
+    display: none;
+  }
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.white-btn {
+  background-color: white;
+  color: black;
+}
+
+.white-btn:hover {
+  color: #404eed;
+}
+
+.dark-btn {
+  background-color: #23272a;
+  color: white;
+}
+
+/* Hero images container */
+.hero-images {
+  position: relative;
+  height: 555px; 
+  display: none; 
+}
+
+@media (min-width: 1280px) {
+  .hero-images {
+    display: block;
+  }
+}
+
+
+
+.hero-images {
+  position: relative;
+  height: 0px; 
+  bottom: 250px;
+}
+
+
+.hero-images .image0 {
+  position: absolute;
+  bottom: -250px;
+  left: -5%;
+  transform: scaleX(1.25);
+  z-index: 10;
+}
+
+.hero-images .image1 {
+  position: absolute;
+  bottom: -250px;
+  right: -5%;
+  z-index: 10;
+}
+
+.hero-images .image2 {
+  position: absolute;
+  bottom: -250px;
+  left: -5%;
+  z-index: 10;
+}
+
+
+/* Mobile Image2*/
+.mobile-image2 {
+  display: block;
+  margin-left: -80px;
+}
+
+@media (min-width: 768px) {
+  .mobile-image2 {
+    display: none;
+  }
+}
+
+/* Mobile Image1 wrapper  */
+.mobile-image1-wrapper {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .mobile-image1-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -150px;
+    margin-top: -16%;
+  }
+}
+
+.mobile-image1 {
+  width: 70%;
+}
+
+
+
+/* Section containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 28px;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.bg-light {
+  background-color: #f6f6f7;
+}
+
+/* Sections image */
+.section-img img {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Section text */
+.section-text h1 {
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.1;
+  color: #23272a;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+.section-text p {
+  font-size: 20px;
+  line-height: 1.5;
+  max-width: 520px;
+  color: #404eed;
   font-weight: 600;
 }
 
-@font-face {
-  font-family: Ginto;
+/* Section 2 flex layout */
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* Show/hide images on mobile/desktop */
+.mobile-only {
+  display: block;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Section 4 */
+
+.section-4 {
+  background-color: #f6f6f7; 
+  padding: 80px 28px;
+}
+
+.section-4-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.section-4-content h1 {
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.1;
+  color: #23272a;
+  max-width: 700px;
+}
+
+.section-4-content p {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #404eed;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-4-content img {
+  max-width: 450px;
+  width: 100%;
+}
+
+/* Section 4 CTA */
+.section-4-cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #23272a;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.section-4-cta img {
+  width: 36px;
+  height: 36px;
+}
+
+/* Mobile download button for section 4 */
+.download-mobile-btn {
+  display: none;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #404eed;
+  background-color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .download-mobile-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+}
+.section4-image {
+  max-width: 700px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.footer-bg {
+  background-color: #404eed; 
+  color: white;
+  padding: 60px 28px;
+  font-family: 'gg Sans', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-left {
+  flex: 1 1 280px;
+  min-width: 280px;
+}
+
+.footer-left h1 {
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.footer-social a {
+  color: white;
+  font-size: 28px;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  color: #ddd;
+}
+
+.footer-right {
+  flex: 3 1 700px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  min-width: 280px;
+}
+
+.footer-right > div {
+  min-width: 140px;
+}
+
+.footer-right > div h2 {
   font-weight: 700;
-  src: url(fonts/Ginto/Ginto-700.woff) format("woff");
+  font-size: 18px;
+  margin-bottom: 16px;
 }
 
-/****************/
-/* Ginto-Italic */
-/****************/
-
-@font-face {
-  font-family: Ginto;
-  font-weight: 300;
-  font-style: italic;
-  src: url(fonts/Ginto/Ginto-300-italic.woff) format("woff");
+.footer-right ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-@font-face {
-  font-family: Ginto;
+.footer-right ul li {
+  margin-bottom: 12px;
+}
+
+.footer-right ul li.invisible {
+  visibility: hidden;
+}
+
+.footer-right ul li a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-right ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 24px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-bottom img {
+  height: 32px;
+}
+
+.footer-bottom button {
+  background-color: white;
+  color: #404eed;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-bottom button:hover {
+  background-color: #dde0f8;
+}
+
+/* Responsive footer bottom for small screens */
+@media screen and (max-width: 767px) {
+  .footer-bottom {
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+.hero-text-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 28px 0; 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Heading */
+.hero-heading {
+  font-weight: 800;
+  font-family: 'GintoNord', sans-serif;
+  font-size: 34px;
+  text-align: left;
+  z-index: 20;
+  margin: 0;
+  bottom: 550px;
+}
+
+@media (min-width: 768px) {
+  .hero-heading {
+    font-size: 56px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-heading {
+    text-align: center;
+  } padding-bottom: 200px;
+}
+
+/* Paragraph */
+.hero-paragraph {
   font-weight: 400;
-  font-style: italic;
-  src: url(fonts/Ginto/Ginto-400-italic.woff) format("woff");
+  font-family: 'gg sans', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  padding-bottom: 200px; 
+  width: 90%;
+  text-align: left;
+  margin: 0 auto;
+  z-index: 20;
 }
 
-@font-face {
-  font-family: Ginto;
+@media (min-width: 768px) {
+  .hero-paragraph {
+    font-size: 20px;
+    line-height: 32.5px;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-paragraph {
+    text-align: center;
+    width: 90%;
+  }
+}
+
+/* Buttons container */
+.hero-buttons {
+  display: flex;
+  gap: 40px;
+  z-index: 20;
+  
+}
+
+.xl-only {
+  display: none;
+}
+
+.mobile-only {
+  display: flex;
+}
+
+@media (min-width: 1280px) {
+  .xl-only {
+    display: flex;
+    justify-content: center;
+  }
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* Buttons */
+.btn {
   font-weight: 500;
-  font-style: italic;
-  src: url(fonts/Ginto/Ginto-500-italic.woff) format("woff");
+  padding: 12px 28px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  
 }
 
-@font-face {
-  font-family: Ginto;
-  font-weight: 600;
-  font-style: italic;
-  src: url(fonts/Ginto/Ginto-600-italic.woff) format("woff");
+.btn-white {
+  background-color: white;
+  color: black;
+  transition: color 0.3s ease;
 }
 
-@font-face {
-  font-family: Ginto;
-  font-weight: 700;
-  font-style: italic;
-  src: url(fonts/Ginto/Ginto-700-italic.woff) format("woff");
+.btn-white:hover {
+  color: #404EED;
 }
 
-/**************/
-/* Ginto-Nord */
-/**************/
-
-@font-face {
-  font-family: GintoNord;
-  font-weight: 500;
-  src: url(fonts/Ginto-Nord/Ginto-Nord-500.woff2) format("woff2"),
-    url(fonts/Ginto-Nord/Ginto-Nord-500.woff) format("woff");
-}
-
-@font-face {
-  font-family: GintoNord;
-  font-weight: 600;
-  src: url(fonts/Ginto-Nord/Ginto-Nord-600.woff2) format("woff2"),
-    url(fonts/Ginto-Nord/Ginto-Nord-600.woff) format("woff");
-}
-
-@font-face {
-  font-family: GintoNord;
-  font-weight: 700;
-  src: url(fonts/Ginto-Nord/Ginto-Nord-700.woff2) format("woff2"),
-    url(fonts/Ginto-Nord/Ginto-Nord-700.woff) format("woff");
-}
-
-/***************/
-/*   gg sans   */
-/***************/
-@font-face {
-  font-family: "ggSans";
-  font-weight: 400;
-  src: url(fonts/gg-sans/ggsans-Normal.ttf);
-}
-@font-face {
-  font-family: "ggSans";
-  font-weight: 500;
-  src: url(fonts/gg-sans/ggsans-Medium.ttf);
-}
-@font-face {
-  font-family: "ggSans";
-  font-weight: 600;
-  src: url(fonts/gg-sans/ggsans-Semibold.ttf);
-}
-@font-face {
-  font-family: "ggSans";
-  font-weight: 700;
-  src: url(fonts/gg-sans/ggsans-Bold.ttf);
+.btn-dark {
+  background-color: #23272a;
+  color: white;
 }
